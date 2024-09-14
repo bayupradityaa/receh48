@@ -14,15 +14,14 @@
 </head>
 <body>
   <header>
-    <a href="#home" class="logo">Receh<span>48.</span></a>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div> 
-    <nav id="nav-menu">
-      <div class="close-btn" onclick="closeMenu()">❌</div> 
-      <a href="#home">Beranda</a>
-      <a href="#form">Form Pemesanan</a>
-      <a href="#testi">Testimoni</a>
+    <a href="#home" class="logo">Receh<span>48</span></a>
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div> <!-- Icon burger -->
+    <nav>
+        <a href="#home">Beranda</a>
+        <a href="#form">Form Pemesanan</a>
+        <a href="#testi">Testimoni</a>
     </nav>
-  </header>
+</header>
 
     <section id="home" class="home">
         <div class="home-img">
@@ -57,40 +56,49 @@
         <div class="form-container">
           <h2>Form Pemesanan Joki VC JKT48</h2>
           <form name="form-vc-receh48">
-            <label for="name">Nama :</label>
-            <input type="text" id="nama" name="nama" placeholder="Masukan nama kalian"><br>
-
-            <label for="username">Username X atau ID Line :</label>
-            <input type="text" id="username" name="username" placeholder="Masukan username X atau ID Line"><br>
             
-            <label for="gmail">Gmail JKT48 :</label>
-            <input type="email" id="gmail" name="gmail" placeholder="Masukan Gmail"><br>
-      
-            <label for="password">Password JKT48 :</label>
-            <div class="password-wrapper">
-              <input type="password" id="password" name="password" placeholder="Masukan Password">
-              <span id="togglePassword" class="eye-icon">👁️</span>
-            </div><br>
-      
-            <label for="tipe">Tipe Akun :</label>
-            <input type="text" id="tipe" name="tipe" placeholder="OFC/GENERAL"><br>
-      
-            <label for="sesi">[Tanggal - Member - Sesi - Jumlah Tiket] :</label>
-            <p>*Gunakan tanda "," untuk mengisi lebih dari 1 member.</p>
-            <input type="text" id="sesi" name="sesi" placeholder="12 Juli - Angelina Christy - Sesi 1 - 3 Tiket"><br>
-      
-            <label for="cadangan">Cadangan :</label>
-            <input type="text" id="cadangan" name="cadangan" placeholder="Masukan Jadwal Cadangan"><br>
-      
+            <div class="input-container">
+              <input type="text" id="nama" name="nama" required>
+              <label for="nama">Nama</label>
+            </div>
+
+            <div class="input-container">
+              <input type="text" id="username" name="username" required>
+              <label for="username">Username X atau ID Line</label>
+            </div>
+
+            <div class="input-container">
+              <input type="email" id="gmail" name="gmail" required>
+              <label for="gmail">Gmail JKT48</label>
+            </div>
+
+            <div class="input-container password-wrapper">
+              <input type="password" id="password" name="password" required>
+              <label for="password">Password JKT48</label>
+              <img src="eye-close.png" id="eyeicon">
+            </div>
+
+            <div class="input-container">
+              <input type="text" id="tipe" name="tipe" required>
+              <label for="tipe">Tipe Akun</label>
+            </div>
+            
+            <p>Gunakan tanda "," untuk mengisi lebih dari 1 member.</p>
+            <div class="input-container">
+              <input type="text" id="sesi" name="sesi" required>
+              <label for="sesi">[Tanggal - Member - Sesi - Jumlah Tiket]</label>
+            </div>
+
+            <div class="input-container">
+              <input type="text" id="cadangan" name="cadangan" required>
+              <label for="cadangan">Cadangan</label>
+            </div>
+
             <button type="submit">Kirim</button>
+            <div id="loading" class="loading">Tunggu Sebentar...</div>
+              <p id="output"></p>
           </form>
-          <div id="loading" class="loading">Tunggu ya kakak ganteng & cantik</div>
-          <p id="output"></p>
-        </div>
-      
-        <div id="imageModal" class="modal">
-          <span class="close" onclick="closeImage()">&times;</span>
-          <img class="modal-content" id="modalImg">
+            
         </div>
       </section>
       
