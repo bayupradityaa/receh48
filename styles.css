@@ -39,15 +39,28 @@ header {
 }
 
 .logo {
-    font-size: 2.7rem;
-    color: rgb(255, 225, 0);
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.5s ease;
+  font-size: 2.7rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: linear-gradient(90deg, rgb(255, 225, 0), aliceblue, #021526);
+  background-size: 300% 100%; /* Perbesar latar untuk efek gerakan */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: moveColor 6s ease-in-out infinite, pulse 3s ease-in-out infinite;
 }
 
-.logo span {
-    color: aliceblue;
+@keyframes moveColor {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .logo:hover {
@@ -188,59 +201,30 @@ section{
     min-width: 280px;
 }
 
-.animated-text span{
-    position: relative;
+.animated-text span {
+  position: relative;
+  color: rgb(255, 225, 0);
 }
 
-.animated-text span::before{
-    content: "GACORRR";
-    color: rgb(255, 225, 0);
-    animation: words 20s infinite;
+.animated-text .blinking-cursor::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background-color: rgb(255, 225, 0);
+  right: 0;
+  animation: blink 0.7s infinite;
 }
 
-.animated-text span::after{
-    content: "";
-    position: absolute;
-    width: calc(100% + 8px);
-    height: 100%;
-    background-color:  #021526;
-    border-left: 2px solid rgb(255, 225, 0);
-    right: -8px;
-    animation: cursor .8s infinite, typing 20s steps(14) infinite;
+@keyframes blink {
+  0%, 50% {
+      opacity: 1;
+  }
+  51%, 100% {
+      opacity: 0;
+  }
 }
 
-@keyframes cursor {
-    to{
-        border-left: 2px solid  #021526;
-    }
-}
-
-@keyframes words {
-    0%,20%{
-        content: "GACORRR";
-    }
-    21%,40%{
-        content: "Trusted";
-    }
-    41%,60%{
-        content: "Aman 100%";
-    }
-    61%,80%{
-        content: "Murah Meriah";
-    }
-    81%,100%{
-        content: "Amanah";
-    }
-}
-
-@keyframes typing {
-    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
-        width: 0;
-    }
-    5%,20%,25%,40%,45%,60%,65%,80%,85%{
-        width: 100%;
-    }
-}
 
 /* Style untuk section form */
 #form {
@@ -659,6 +643,7 @@ nav a.active {
   .home{
       flex-direction: column;
       margin: 5rem 2%;
+      gap: 3.5rem;
   }
 
   .home .home-content h3{
@@ -674,8 +659,8 @@ nav a.active {
       margin-top: 4rem;
   }
 
-  .home .home-content .animated-text {
-      font-size: 2rem;
+  .animated-text {
+      font-size: 3rem;
   }
 
 
